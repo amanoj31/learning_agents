@@ -1,0 +1,1 @@
+Quantization Fundamentals with Hugging Face : https://www.coursera.org/programs/school-of-data-management-sieb0/learn/quantization-fundamentals
