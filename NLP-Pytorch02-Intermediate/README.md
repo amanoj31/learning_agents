@@ -1,0 +1,443 @@
+PyTorch: Techniques and Ecosystem Tools- https://www.coursera.org/learn/pytorch-techniques-and-ecosystem-tools/home
+
+- M1-L1 : Hyperparameter Tuning — `M1-L1/C2_M1_Lab_1_tuning_and_metrics.ipynb`
+  - Top heading (from notebook): "Hyperparameter Tuning: Learning Rate and Metrics"
+  - Technical details & techniques:
+    - Experiments on CIFAR-10 with a SimpleCNN; sweep/grid over learning rates.
+    - Uses training/evaluation helpers (train_and_evaluate, evaluate_accuracy).
+    - Computes precision/recall/F1 with `torchmetrics` and compares metric behaviors.
+  - New concept introduced:
+    - How hyperparameters (especially learning rate) affect convergence and metrics.
+    - Practical usage of `torchmetrics` for richer evaluation beyond accuracy.
+  - By the end of this lab you'll be able to:
+    - Run LR sweeps and interpret metric curves to pick sensible learning rates.
+    - Report precision/recall/F1 and understand trade-offs when tuning.
+
+- M1-L2 : Learning Rate Schedulers — `M1-L2/C2_M1_Lab_2_Schedulers.ipynb`
+  - Top heading (from notebook): "Schedulers in PyTorch"
+  - Technical details & techniques:
+    - Demonstrates `StepLR`, `CosineAnnealingLR`, and `ReduceLROnPlateau`.
+    - Integrates `scheduler.step()` into training loops and visualizes learning curves.
+    - Shows when to use plateau-based vs. epoch-based scheduling.
+  - New concept introduced:
+    - The role of learning-rate schedulers in stabilizing training and improving final metrics.
+  - By the end of this lab you'll be able to:
+    - Add and evaluate different LR schedulers in your training loop.
+    - Choose between scheduler types based on validation behavior.
+
+- M1-L3 : Optuna Hyperparameter Optimization — `M1-L3/C2_M1_Lab_3_Optuna.ipynb`
+  - Top heading (from notebook): "Hyperparameter Optimization with Optuna"
+  - Technical details & techniques:
+    - Builds a flexible CNN and defines an `objective(trial)` to sample architecture and training hyperparameters.
+    - Runs `study.optimize()` and inspects Optuna visualizations for parameter importance.
+    - Compares Optuna search with simpler grid approaches and logs best trials.
+  - New concept introduced:
+    - Automated hyperparameter search using Optuna's sampling and pruning features.
+  - By the end of this lab you'll be able to:
+    - Define an Optuna `objective` that samples model and training hyperparameters.
+    - Run and analyze a study to identify important hyperparameters and the best trial.
+
+- M1-L4 : Efficiency vs Performance — `M1-L4/C2_M1_Lab_4_Efficiency.ipynb`
+  - Top heading (from notebook): "Efficiency vs Performance Metrics"
+  - Technical details & techniques:
+    - Measures model size, inference latency, and accuracy to compare trade-offs.
+    - Implements selection strategies (weighted scoring, constraint-based selection).
+    - Benchmarks small custom CNN vs. ResNet34-style models.
+  - New concept introduced:
+    - How to quantify efficiency (size, latency) and balance it against performance.
+  - By the end of this lab you'll be able to:
+    - Measure and compare model size and inference time across candidates.
+    - Make model-selection decisions based on constraints (latency, memory) and weighted scoring.
+
+- M1-A : FakeFinder Programming Assignment — `M1-A/C2M1_Assignment.ipynb`
+  - Top heading (from notebook): "Programming Assignment - FakeFinder : Building an AI to Detect AI-Generated Images"
+  - Technical details & techniques:
+    - Implements a `FlexibleCNN` class and training pipeline for image classification.
+    - Defines an Optuna `design_search_space` and `objective_function` to optimize architecture and hyperparameters.
+    - Includes efficiency-aware metrics and helper functions (`get_trainable_params`, `add_efficiency_metrics`) and unit tests for graded functions.
+  - New concept introduced:
+    - Bringing AutoML (Optuna) together with efficiency metrics to balance accuracy vs latency/size.
+  - By the end of this assignment you'll be able to:
+    - Implement the model class and Optuna objective, run a study, and report best trial parameters.
+    - Add efficiency-aware measurements and prepare models for constrained deployment scenarios.
+
+- M2-L1 : TorchVision — Preprocessing & Datasets — `M2-L1/C2_M2_Lab_1_torchvision_1.ipynb`
+  - Top heading (from notebook): "TorchVision: Datasets & Transforms (Part 1)"
+  - Technical details & techniques:
+    - Covers `transforms.Compose`, `ImageFolder`, `CIFAR10`, and basic augmentation pipelines.
+    - Demonstrates building `DataLoader`s, dataset splits, and normalization.
+  - New concept introduced:
+    - Best practices for image preprocessing pipelines and how transforms affect model input.
+  - By the end of this lab you'll be able to:
+    - Construct robust `transforms` pipelines and prepare `DataLoader`s for training/validation.
+    - Apply augmentations and normalization appropriately for common vision datasets.
+
+- M2-L2 : TorchVision — Utilities & Visualization — `M2-L2/C2_M2_Lab_2_torchvision_2.ipynb`
+  - Top heading (from notebook): "TorchVision: Utilities and Visualization"
+  - Technical details & techniques:
+    - Shows image visualization helpers and `draw_bounding_boxes` / `draw_segmentation_masks` usage.
+    - Examples of dataset inspection and debugging transform pipelines.
+  - New concept introduced:
+    - Tools for visual debugging of vision datasets and model outputs.
+  - By the end of this lab you'll be able to:
+    - Visualize samples, bounding boxes and segmentation masks to validate dataset correctness.
+    - Use visualization to diagnose transform or annotation issues before training.
+
+- M2-L3 : TorchVision — Detection & Segmentation — `M2-L3/C2_M2_Lab_3_torchvision_3.ipynb`
+  - Top heading (from notebook): "Detection and Segmentation with TorchVision"
+  - Technical details & techniques:
+    - Uses pretrained models (e.g., Faster R-CNN, DeepLabV3) for inference and fine-tuning.
+    - Covers dataset formatting for detection/segmentation and post-processing visualizations.
+  - New concept introduced:
+    - The data format and training loop differences required for detection and segmentation tasks.
+  - By the end of this lab you'll be able to:
+    - Prepare datasets for object detection/segmentation and run pretrained TorchVision models.
+    - Fine-tune detection/segmentation heads and visualize predictions for inspection.
+
+- M2-L4 : Transfer Learning with Vision Models — `M2-L4/C2_M2_Lab_4_transfer_learning.ipynb`
+  - Top heading (from notebook): "Transfer Learning Strategies"
+  - Technical details & techniques:
+    - Demonstrates feature extraction vs. fine-tuning; replacing classifier head (ResNet/MobileNet examples).
+    - Shows when to freeze/unfreeze layers and how to adapt optimizers and LR schedules.
+  - New concept introduced:
+    - Transfer learning strategies: when to use feature extraction versus full fine-tuning.
+  - By the end of this lab you'll be able to:
+    - Replace classifier heads, freeze backbones, and fine-tune selected layers.
+    - Adjust optimizers and LR schedules for transfer-learning scenarios.
+
+- M2-A : Transfer Learning Assignment — `M2-A/C2M2_Assignment.ipynb`
+  - Top heading (from notebook): "Programming Assignment - FakeFinder: Upgrading the Expedition with Transfer Learning"
+  - Technical details & techniques:
+    - Loads `MobileNetV3-Large`, applies pretrained weights, and demonstrates freezing feature-extractor layers.
+    - Implements dataset transforms, `create_data_loaders`, and replaces the classifier head (`update_model_last_layer`).
+    - Includes unit tests and helper utilities for data splitting and transform pipelines.
+  - New concept introduced:
+    - Practical transfer learning workflow: freeze backbone, replace head, and selectively fine-tune.
+  - By the end of this assignment you'll be able to:
+    - Prepare ImageFolder datasets and transforms, load a MobileNetV3, and update its classifier head.
+    - Choose which layers to freeze/unfreeze and train a robust transfer-learning pipeline.
+
+- M3-L1 : Basic Tokenization — `M3-L1/C2_M3_Lab_1_basic_tokenization.ipynb`
+  - Top heading (from notebook): "Tokenization Basics"
+  - Technical details & techniques:
+    - Builds vocab, maps tokens ↔ indices, and demonstrates padding/truncation for batching.
+    - Compares simple split-based tokenizers with subword tokenizers; batching and collate helpers.
+  - New concept introduced:
+    - Tokenization mechanics and the implications of tokenization choices on model inputs.
+  - By the end of this lab you'll be able to:
+    - Build a vocabulary, tokenize text for batching, and implement collate functions.
+    - Decide between simple tokenizers and subword approaches for your tasks.
+
+- M3-L2 : Embeddings — `M3-L2/C2_M3_Lab_2_embeddings.ipynb`
+  - Top heading (from notebook): "Embeddings"
+  - Technical details & techniques:
+    - Loads pre-trained GloVe (`glove.6B`) and uses cosine similarity for semantic analogies (king - man + woman ≈ queen).
+    - Visualizes high-dimensional embeddings via PCA and plots clusters (helper_utils.plot_embeddings).
+    - Builds and trains a simple `nn.Embedding` model from scratch; trains on synthetic category pairs and plots loss.
+    - Demonstrates contextual embeddings with BERT (download/load via helper_utils, `AutoTokenizer`/model), showing different vectors per context.
+  - New concept introduced:
+    - Differences between static embeddings (GloVe) and contextual embeddings (BERT).
+  - By the end of this lab you'll be able to:
+    - Load and inspect pretrained embeddings, run analogy arithmetic, and visualize embedding clusters.
+    - Train a small embedding layer from scratch and compare static vs contextual representations.
+
+- M3-L3 : Build Text Classifier — `M3-L3/C2_M3_Lab_3_build_text_classifier.ipynb`
+  - Top heading (from notebook): "Build a Text Classifier"
+  - Technical details & techniques:
+    - Converts tokenized text to tensors, builds a classifier (embedding → encoder → linear), and trains with cross-entropy.
+    - Evaluates with accuracy/precision/recall and plots learning curves and confusion matrices.
+  - New concept introduced:
+    - Full pipeline from tokenization → modeling → evaluation for text classification.
+  - By the end of this lab you'll be able to:
+    - Implement a simple text classifier end-to-end and run standard evaluation plots.
+    - Interpret confusion matrices and per-class metrics to debug model weaknesses.
+
+- M3-L4 : Fine-tuned Text Classifier — `M3-L4/C2_M3_Lab_4_finetuned_text_classifier.ipynb`
+  - Top heading (from notebook): "Fine-tuning a Pretrained Text Model"
+  - Technical details & techniques:
+    - Fine-tunes a pretrained transformer or classification head on a downstream dataset.
+    - Shows best-practice training (LR schedules, AdamW, `torchmetrics`) and evaluation workflows.
+  - New concept introduced:
+    - Practical fine-tuning of pretrained language models with common training best-practices.
+  - By the end of this lab you'll be able to:
+    - Set up and run a fine-tuning loop for a pretrained transformer.
+    - Apply LR scheduling, AdamW, and advanced metrics while monitoring overfitting.
+
+- M3-A : Dispatcher / Transformer Assignment — `M3-A/C2M3_Assignment.ipynb`
+  - Top heading (from notebook): "Programming Assignment: AI Powered Request Dispatcher"
+  - Technical details & techniques:
+    - Prepares instruction-style data, tokenizes with a Hugging Face tokenizer, and implements `InstructionDataset` and a collator.
+    - Uses `DistilBERT` for classification, computes class weights for imbalanced labels, and shows partial-freezing of transformer layers.
+    - Contains unit tests for dataset/collator and training utilities.
+  - New concept introduced:
+    - Handling instruction-formatted NLP datasets and efficient fine-tuning strategies for transformers.
+  - By the end of this assignment you'll be able to:
+    - Build a dataset + collator for transformers, compute class weights, and partially freeze transformer layers for efficient fine-tuning.
+
+- M4-L1 : Optimizing Dataloaders — `M4-L1/C2_M4_Lab_1_optimizing_dataloaders.ipynb`
+  - Top heading (from notebook): "Optimizing DataLoaders"
+  - Technical details & techniques:
+    - Covers `num_workers`, `pin_memory`, prefetching, and efficient transforms to reduce bottlenecks.
+    - Benchmarks synthetic vs real data and demonstrates `prefetch_factor` tuning.
+  - New concept introduced:
+    - How data loading parameters impact throughput and when they become training bottlenecks.
+  - By the end of this lab you'll be able to:
+    - Tune `DataLoader` parameters to maximize CPU/GPU utilization.
+    - Identify data-pipeline bottlenecks and apply prefetching / transform optimizations.
+
+- M4-L2 : Profiling and Bottlenecks — `M4-L2/C2_M4_Lab_2_profiling.ipynb`
+  - Top heading (from notebook): "Profiling PyTorch Code"
+  - Technical details & techniques:
+    - Uses timers and `torch.profiler` (or simple time measurements) to locate CPU/GPU bottlenecks.
+    - Measures memory usage and suggests fixes (batch sizing, data pipeline improvements, mixed precision).
+  - New concept introduced:
+    - Profiling tools and how to interpret traces to find hot-spots in training.
+  - By the end of this lab you'll be able to:
+    - Run basic profiling, read results for CPU/GPU time, and propose targeted fixes.
+    - Use memory and time metrics to decide on batching, precision, and model changes.
+
+- M4-L3 : Optimization Techniques — `M4-L3/C2_M4_Lab_3_optimization.ipynb`
+  - Top heading (from notebook): "Optimization and Deployment Considerations"
+  - Technical details & techniques:
+    - Demonstrates mixed precision training (`torch.cuda.amp`), model pruning/quantization sketches, and inference speedups.
+    - Shows integration with schedulers and AMP for better throughput with limited accuracy loss.
+  - New concept introduced:
+    - Practical optimization techniques for training and deployment (AMP, pruning, quantization).
+  - By the end of this lab you'll be able to:
+    - Apply mixed-precision training to speed up training with `torch.cuda.amp`.
+    - Understand basic pruning/quantization ideas and how they affect accuracy vs speed.
+
+- M4-A : Pneumonia Diagnostic Assistant — `M4-A/C2M4_Assignment.ipynb`
+  - Top heading (from notebook): "Programming Assignment: A Pneumonia Diagnostic Assistant"
+  - Technical details & techniques:
+    - Build a `LightningDataModule` for ImageFolder data and a `LightningModule` that loads a ResNet-18 backbone.
+    - Implements transfer learning (freeze backbone, replace head), defines optimizer/scheduler (AdamW + ReduceLROnPlateau), and configures `EarlyStopping`.
+    - Uses `pl.Trainer` with mixed precision (`'16-mixed'`), includes evaluation utilities (confusion matrix, per-class accuracy) and unit tests for graded exercises.
+  - New concept introduced:
+    - Structuring a professional training pipeline with PyTorch Lightning: DataModule + LightningModule + callbacks + mixed precision.
+  - By the end of this assignment you'll be able to:
+    - Assemble DataModule and LightningModule classes, configure the Trainer and EarlyStopping, and run a dry-run training & evaluation.
+
+Notes:
+- These entries summarize the top-level learning goals and common helper utilities used (many notebooks rely on `helper_utils.py` functions for downloading models/data and plotting).
+- If you want, I can embed the first paragraph from each notebook under each entry (more verbose), or write a shorter bullet-only README. Which do you prefer?
+PyTorch: Techniques and Ecosystem Tools- https://www.coursera.org/learn/pytorch-techniques-and-ecosystem-tools/home
+
+- M1-L1 : Hyperparameter Tuning — `M1-L1/C2_M1_Lab_1_tuning_and_metrics.ipynb`
+  - Top heading (from notebook): "Hyperparameter Tuning: Learning Rate and Metrics"
+  - Technical details & techniques:
+    - Experiments on CIFAR-10 with a SimpleCNN; sweep/grid over learning rates.
+    - Uses training/evaluation helpers (train_and_evaluate, evaluate_accuracy).
+    - Computes precision/recall/F1 with `torchmetrics` and compares metric behaviors.
+  - New concept introduced:
+    - How hyperparameters (especially learning rate) affect convergence and metrics.
+    - Practical usage of `torchmetrics` for richer evaluation beyond accuracy.
+  - By the end of this lab you'll be able to:
+    - Run LR sweeps and interpret metric curves to pick sensible learning rates.
+    - Report precision/recall/F1 and understand trade-offs when tuning.
+
+- M1-L2 : Learning Rate Schedulers — `M1-L2/C2_M1_Lab_2_Schedulers.ipynb`
+  - Top heading (from notebook): "Schedulers in PyTorch"
+  - Technical details & techniques:
+    - Demonstrates `StepLR`, `CosineAnnealingLR`, and `ReduceLROnPlateau`.
+    - Integrates `scheduler.step()` into training loops and visualizes learning curves.
+    - Shows when to use plateau-based vs. epoch-based scheduling.
+  - New concept introduced:
+    - The role of learning-rate schedulers in stabilizing training and improving final metrics.
+  - By the end of this lab you'll be able to:
+    - Add and evaluate different LR schedulers in your training loop.
+    - Choose between scheduler types based on validation behavior.
+
+- M1-L3 : Optuna Hyperparameter Optimization — `M1-L3/C2_M1_Lab_3_Optuna.ipynb`
+  - Top heading (from notebook): "Hyperparameter Optimization with Optuna"
+  - Technical details & techniques:
+    - Builds a flexible CNN and defines an `objective(trial)` to sample architecture and training hyperparameters.
+    - Runs `study.optimize()` and inspects Optuna visualizations for parameter importance.
+    - Compares Optuna search with simpler grid approaches and logs best trials.
+  - New concept introduced:
+    - Automated hyperparameter search using Optuna's sampling and pruning features.
+  - By the end of this lab you'll be able to:
+    - Define an Optuna `objective` that samples model and training hyperparameters.
+    - Run and analyze a study to identify important hyperparameters and the best trial.
+
+- M1-L4 : Efficiency vs Performance — `M1-L4/C2_M1_Lab_4_Efficiency.ipynb`
+  - Top heading (from notebook): "Efficiency vs Performance Metrics"
+  - Technical details & techniques:
+    - Measures model size, inference latency, and accuracy to compare trade-offs.
+    - Implements selection strategies (weighted scoring, constraint-based selection).
+    - Benchmarks small custom CNN vs. ResNet34-style models.
+  - New concept introduced:
+    - How to quantify efficiency (size, latency) and balance it against performance.
+  - By the end of this lab you'll be able to:
+    - Measure and compare model size and inference time across candidates.
+    - Make model-selection decisions based on constraints (latency, memory) and weighted scoring.
+
+- M2-L1 : TorchVision — Preprocessing & Datasets — `M2-L1/C2_M2_Lab_1_torchvision_1.ipynb`
+  - Top heading (from notebook): "TorchVision: Datasets & Transforms (Part 1)"
+  - Technical details & techniques:
+    - Covers `transforms.Compose`, `ImageFolder`, `CIFAR10`, and basic augmentation pipelines.
+    - Demonstrates building `DataLoader`s, dataset splits, and normalization.
+  - New concept introduced:
+    - Best practices for image preprocessing pipelines and how transforms affect model input.
+  - By the end of this lab you'll be able to:
+    - Construct robust `transforms` pipelines and prepare `DataLoader`s for training/validation.
+    - Apply augmentations and normalization appropriately for common vision datasets.
+
+- M2-L2 : TorchVision — Utilities & Visualization — `M2-L2/C2_M2_Lab_2_torchvision_2.ipynb`
+  - Top heading (from notebook): "TorchVision: Utilities and Visualization"
+  - Technical details & techniques:
+    - Shows image visualization helpers and `draw_bounding_boxes` / `draw_segmentation_masks` usage.
+    - Examples of dataset inspection and debugging transform pipelines.
+  - New concept introduced:
+    - Tools for visual debugging of vision datasets and model outputs.
+  - By the end of this lab you'll be able to:
+    - Visualize samples, bounding boxes and segmentation masks to validate dataset correctness.
+    - Use visualization to diagnose transform or annotation issues before training.
+
+- M2-L3 : TorchVision — Detection & Segmentation — `M2-L3/C2_M2_Lab_3_torchvision_3.ipynb`
+  - Top heading (from notebook): "Detection and Segmentation with TorchVision"
+  - Technical details & techniques:
+    - Uses pretrained models (e.g., Faster R-CNN, DeepLabV3) for inference and fine-tuning.
+    - Covers dataset formatting for detection/segmentation and post-processing visualizations.
+  - New concept introduced:
+    - The data format and training loop differences required for detection and segmentation tasks.
+  - By the end of this lab you'll be able to:
+    - Prepare datasets for object detection/segmentation and run pretrained TorchVision models.
+    - Fine-tune detection/segmentation heads and visualize predictions for inspection.
+
+- M2-L4 : Transfer Learning with Vision Models — `M2-L4/C2_M2_Lab_4_transfer_learning.ipynb`
+  - Top heading (from notebook): "Transfer Learning Strategies"
+  - Technical details & techniques:
+    - Demonstrates feature extraction vs. fine-tuning; replacing classifier head (ResNet/MobileNet examples).
+    - Shows when to freeze/unfreeze layers and how to adapt optimizers and LR schedules.
+  - New concept introduced:
+    - Transfer learning strategies: when to use feature extraction versus full fine-tuning.
+  - By the end of this lab you'll be able to:
+    - Replace classifier heads, freeze backbones, and fine-tune selected layers.
+    - Adjust optimizers and LR schedules for transfer-learning scenarios.
+
+- M3-L1 : Basic Tokenization — `M3-L1/C2_M3_Lab_1_basic_tokenization.ipynb`
+  - Top heading (from notebook): "Tokenization Basics"
+  - Technical details & techniques:
+    - Builds vocab, maps tokens ↔ indices, and demonstrates padding/truncation for batching.
+    - Compares simple split-based tokenizers with subword tokenizers; batching and collate helpers.
+  - New concept introduced:
+    - Tokenization mechanics and the implications of tokenization choices on model inputs.
+  - By the end of this lab you'll be able to:
+    - Build a vocabulary, tokenize text for batching, and implement collate functions.
+    - Decide between simple tokenizers and subword approaches for your tasks.
+
+- M3-L2 : Embeddings — `M3-L2/C2_M3_Lab_2_embeddings.ipynb`
+  - Top heading (from notebook): "Embeddings"
+  - Technical details & techniques:
+    - Loads pre-trained GloVe (`glove.6B`) and uses cosine similarity for semantic analogies (king - man + woman ≈ queen).
+    - Visualizes high-dimensional embeddings via PCA and plots clusters (helper_utils.plot_embeddings).
+    - Builds and trains a simple `nn.Embedding` model from scratch; trains on synthetic category pairs and plots loss.
+    - Demonstrates contextual embeddings with BERT (download/load via helper_utils, `AutoTokenizer`/model), showing different vectors per context.
+  - New concept introduced:
+    - Differences between static embeddings (GloVe) and contextual embeddings (BERT).
+  - By the end of this lab you'll be able to:
+    - Load and inspect pretrained embeddings, run analogy arithmetic, and visualize embedding clusters.
+    - Train a small embedding layer from scratch and compare static vs contextual representations.
+
+- M3-L3 : Build Text Classifier — `M3-L3/C2_M3_Lab_3_build_text_classifier.ipynb`
+  - Top heading (from notebook): "Build a Text Classifier"
+  - Technical details & techniques:
+    - Converts tokenized text to tensors, builds a classifier (embedding → encoder → linear), and trains with cross-entropy.
+    - Evaluates with accuracy/precision/recall and plots learning curves and confusion matrices.
+  - New concept introduced:
+    - Full pipeline from tokenization → modeling → evaluation for text classification.
+  - By the end of this lab you'll be able to:
+    - Implement a simple text classifier end-to-end and run standard evaluation plots.
+    - Interpret confusion matrices and per-class metrics to debug model weaknesses.
+
+- M3-L4 : Fine-tuned Text Classifier — `M3-L4/C2_M3_Lab_4_finetuned_text_classifier.ipynb`
+  - Top heading (from notebook): "Fine-tuning a Pretrained Text Model"
+  - Technical details & techniques:
+    - Fine-tunes a pretrained transformer or classification head on a downstream dataset.
+    - Shows best-practice training (LR schedules, AdamW, `torchmetrics`) and evaluation workflows.
+  - New concept introduced:
+    - Practical fine-tuning of pretrained language models with common training best-practices.
+  - By the end of this lab you'll be able to:
+    - Set up and run a fine-tuning loop for a pretrained transformer.
+    - Apply LR scheduling, AdamW, and advanced metrics while monitoring overfitting.
+
+- M4-L1 : Optimizing Dataloaders — `M4-L1/C2_M4_Lab_1_optimizing_dataloaders.ipynb`
+  - Top heading (from notebook): "Optimizing DataLoaders"
+  - Technical details & techniques:
+    - Covers `num_workers`, `pin_memory`, prefetching, and efficient transforms to reduce bottlenecks.
+    - Benchmarks synthetic vs real data and demonstrates `prefetch_factor` tuning.
+  - New concept introduced:
+    - How data loading parameters impact throughput and when they become training bottlenecks.
+  - By the end of this lab you'll be able to:
+    - Tune `DataLoader` parameters to maximize CPU/GPU utilization.
+    - Identify data-pipeline bottlenecks and apply prefetching / transform optimizations.
+
+- M4-L2 : Profiling and Bottlenecks — `M4-L2/C2_M4_Lab_2_profiling.ipynb`
+  - Top heading (from notebook): "Profiling PyTorch Code"
+  - Technical details & techniques:
+    - Uses timers and `torch.profiler` (or simple time measurements) to locate CPU/GPU bottlenecks.
+    - Measures memory usage and suggests fixes (batch sizing, data pipeline improvements, mixed precision).
+  - New concept introduced:
+    - Profiling tools and how to interpret traces to find hot-spots in training.
+  - By the end of this lab you'll be able to:
+    - Run basic profiling, read results for CPU/GPU time, and propose targeted fixes.
+    - Use memory and time metrics to decide on batching, precision, and model changes.
+
+- M4-L3 : Optimization Techniques — `M4-L3/C2_M4_Lab_3_optimization.ipynb`
+  - Top heading (from notebook): "Optimization and Deployment Considerations"
+  - Technical details & techniques:
+    - Demonstrates mixed precision training (`torch.cuda.amp`), model pruning/quantization sketches, and inference speedups.
+    - Shows integration with schedulers and AMP for better throughput with limited accuracy loss.
+  - New concept introduced:
+    - Practical optimization techniques for training and deployment (AMP, pruning, quantization).
+  - By the end of this lab you'll be able to:
+    - Apply mixed-precision training to speed up training with `torch.cuda.amp`.
+    - Understand basic pruning/quantization ideas and how they affect accuracy vs speed.
+
+- M1-A : FakeFinder Programming Assignment — `M1-A/C2M1_Assignment.ipynb`
+  - Top heading (from notebook): "Programming Assignment - FakeFinder : Building an AI to Detect AI-Generated Images"
+  - Technical details & techniques:
+    - Implements a `FlexibleCNN` class and training pipeline for image classification.
+    - Defines an Optuna `design_search_space` and `objective_function` to optimize architecture and hyperparameters.
+    - Includes efficiency-aware metrics and helper functions (`get_trainable_params`, `add_efficiency_metrics`) and unit tests for graded functions.
+  - New concept introduced:
+    - Bringing AutoML (Optuna) together with efficiency metrics to balance accuracy vs latency/size.
+  - By the end of this assignment you'll be able to:
+    - Implement the model class and Optuna objective, run a study, and report best trial parameters.
+    - Add efficiency-aware measurements and prepare models for constrained deployment scenarios.
+
+- M2-A : Transfer Learning Assignment — `M2-A/C2M2_Assignment.ipynb`
+  - Top heading (from notebook): "Programming Assignment - FakeFinder: Upgrading the Expedition with Transfer Learning"
+  - Technical details & techniques:
+    - Loads `MobileNetV3-Large`, applies pretrained weights, and demonstrates freezing feature-extractor layers.
+    - Implements dataset transforms, `create_data_loaders`, and replaces the classifier head (`update_model_last_layer`).
+    - Includes unit tests and helper utilities for data splitting and transform pipelines.
+  - New concept introduced:
+    - Practical transfer learning workflow: freeze backbone, replace head, and selectively fine-tune.
+  - By the end of this assignment you'll be able to:
+    - Prepare ImageFolder datasets and transforms, load a MobileNetV3, and update its classifier head.
+    - Choose which layers to freeze/unfreeze and train a robust transfer-learning pipeline.
+
+- M3-A : Dispatcher / Transformer Assignment — `M3-A/C2M3_Assignment.ipynb`
+  - Top heading (from notebook): "Programming Assignment: AI Powered Request Dispatcher"
+  - Technical details & techniques:
+    - Prepares instruction-style data, tokenizes with a Hugging Face tokenizer, and implements `InstructionDataset` and a collator.
+    - Uses `DistilBERT` for classification, computes class weights for imbalanced labels, and shows partial-freezing of transformer layers.
+    - Contains unit tests for dataset/collator and training utilities.
+  - New concept introduced:
+    - Handling instruction-formatted NLP datasets and efficient fine-tuning strategies for transformers.
+  - By the end of this assignment you'll be able to:
+    - Build a dataset + collator for transformers, compute class weights, and partially freeze transformer layers for efficient fine-tuning.
+
+- M4-A : Pneumonia Diagnostic Assistant — `M4-A/C2M4_Assignment.ipynb`
+  - Top heading (from notebook): "Programming Assignment: A Pneumonia Diagnostic Assistant"
+  - Technical details & techniques:
+    - Build a `LightningDataModule` for ImageFolder data and a `LightningModule` that loads a ResNet-18 backbone.
+    - Implements transfer learning (freeze backbone, replace head), defines optimizer/scheduler (AdamW + ReduceLROnPlateau), and configures `EarlyStopping`.
+    - Uses `pl.Trainer` with mixed precision (`'16-mixed'`), includes evaluation utilities (confusion matrix, per-class accuracy) and unit tests for graded exercises.
+  - New concept introduced:
+    - Structuring a professional training pipeline with PyTorch Lightning: DataModule + LightningModule + callbacks + mixed precision.
+  - By the end of this assignment you'll be able to:
+    - Assemble DataModule and LightningModule classes, configure the Trainer and EarlyStopping, and run a dry-run training & evaluation.
+

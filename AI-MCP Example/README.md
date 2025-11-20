@@ -1,3 +1,5 @@
+# Course: Model Context Protocol (MCP) Mastery - https://www.coursera.org/learn/model-context-protocol-mcp-mastery/home/module/1
+
 # MCP Stock Query System
 
 An intelligent stock data retrieval system built on the Model Context Protocol (MCP) that combines AI-powered query understanding with reliable financial data access. The system uses Google's Gemini AI to interpret natural language queries and automatically selects the appropriate tools to fetch stock market information.
