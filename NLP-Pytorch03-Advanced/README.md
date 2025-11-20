@@ -1,6 +1,5 @@
-PyTorch Advanced: Topics and Labs - NLP-Pytorch03-Advanced
+PyTorch: Advanced Architectures and Deployment- https://www.coursera.org/learn/pytorch-advanced-architectures-and-deployment/home
 
-This README follows the template used in `NLP-Pytorch02-Intermediate/README.md`. Each entry lists the notebook path, top heading (inferred), technical details & techniques, new concepts introduced, and practical outcomes.
 
 - M1-L1 : Siamese Networks — `M1-L1/C3_M1_Lab_1_siamese_network.ipynb`
   - Top heading (from notebook): "Siamese Networks for Similarity Learning"
