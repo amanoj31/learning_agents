@@ -84,7 +84,3 @@ Generative AI Engineering and Fine-Tuning Transformers - https://www.coursera.or
   - By the end of this lab you'll be able to:
     - Run QLoRA-style finetuning and fit large models on limited GPU memory while preserving performance.
 
-Notes:
-- These summaries follow the same structure as the `NLP-Pytorch02-Intermediate` README. I inferred headings and technical bullets from notebook filenames and common LLM finetuning practices.
-- If you'd like exact first-paragraph headings and live code highlights, I can open each notebook and extract the real top-level text and a brief code excerpt.
-- I can also create per-folder `README.md` files (e.g., `L1/README.md`, `L2/README.md`, ...) or commit this aggregated README to the repo. Tell me which you prefer.
